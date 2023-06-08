@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/trang-chu.css">
+</head>
+<div th:replace="boostrap/bootrap::boot"></div>
+<body>
+<div id="layout">
+    <header>
+        <div th:replace="layout/navbar::nav"></div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://thietke6d.com/wp-content/uploads/2021/03/Mau-banner-quang-cao-dep-1.png "
+                         class="d-block w-100" style="height: 70%" alt="...">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <aside>
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+            <div class="position-sticky">
+                <div class="list-group list-group-flush mx-3 mt-4" th:each="category : ${categorys}">
+                    <a th:href="@{/products/category(id=${category.id})}" class="list-group-item list-group-item-action py-2 ripple border" aria-current="true">
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i>
+                        <span th:text="${category.name}" th:value="${category.id}"></span>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+        <!-- Sidebar -->
+    </aside>
+
+    <article class="card-item" th:each="product : ${products}">
+        <div class="col-1">
+            <a class="btn" th:href="@{'/products/' + ${product.id}}" role="button">
+                <img th:src="${product.img}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <a class="btn " th:href="@{'/products/' + ${product.id}}" role="button">
+                    <small th:text="${product.name}"></small></a>
+                <small th:text="${product.price}"></small>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <!-- Footer -->
+        <div th:replace="layout/footer::footer"></div>
+    </footer>
+</div>
+</body>
+</html>

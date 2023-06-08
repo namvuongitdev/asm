@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="product">
+    <div>
+        <a class="btn btn-primary" th:href="@{/new}">Tạo sản phẩm</a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Ảnh</th>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Thoa tác</th>
+        </tr>
+        </thead>
+        <tbody th:each = "product , itrStat: ${products}">
+        <tr>
+            <td th:text="${itrStat.index + 1}"></td>
+            <td><img th:src="${product.img}" style="width: 200px" height="150px"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td><a th:href=@{/product/}>Chi tiết</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

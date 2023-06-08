@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<div th:replace="boostrap/bootrap::boot"></div>
+<body>
+<header>
+    <div th:replace="layout/navbar::nav"></div>
+</header>
+<article>
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Đơn giá</th>
+            <th>Số Lượng</th>
+            <th>Thành tiền</th>
+            <th>Action</th>
+        </tr>
+        <th:tbody th:each="cart , itrStat : ${carts}">
+            <tr>
+                <td th:text="${itrStat.index + 1}"></td>
+                <td><img th:src="${cart.product.img}" style="width: 250px" alt="..."></td>
+                <td><p th:text="${cart.product.name}"><p th:text=" ${cart.color.name}"><p th:text="${ cart.size.name}"></p></p></p></td>
+                <td th:text="${cart.product.price}"></td>
+                <td><form method="post" th:action="@{/update-cart(id=${cart.id})}"><input type="number" name="quantity" th:value="${cart.quantityValueCookie}" th:max="${cart.quantity}" min="0"><button  class="btn btn-primary">Update</button></form></td>
+                <td th:text="${cart.thanhTien}" th:value="${cart.thanhTien}" name="thanhTien"></td>
+                <td><a class="btn btn-primary" role="button" th:href="@{'/remove-item/' + ${cart.id}}">Xoá</a></td>
+            </tr>
+        </th:tbody>
+        <tr>
+            <td><a class="btn btn-primary" th:href="@{/products}" role="button">Tiếp tục mua hàng</a></td>
+            <td><a class="btn btn-primary" th:href="@{/thanh-toan}" role="button">Thanh toán</a></td>
+            <td id="tongTien">Tổng tiền:</td>
+        </tr>
+    </table>
+</article>
+<footer>
+    <div th:replace="layout/footer::footer"></div>
+</footer>
+
+<script src="/js/thanh-tien.js">
+</script>
+</body>
+
+</html>

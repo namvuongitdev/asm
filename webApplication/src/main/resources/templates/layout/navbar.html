@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="nav">
+    <nav class="nav">
+        <a class="nav-link active" aria-current="page" th:href="@{/products}">Shop</a>
+        <a class="nav-link" th:href="@{/gio-hang}">cart</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link disabled">Disabled</a>
+    </nav>
+</div>
+</body>
+</html>

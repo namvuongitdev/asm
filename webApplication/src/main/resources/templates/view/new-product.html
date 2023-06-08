@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="text-center">
+        <div th:fragment="new-product">
+            <form th:object="${productModel}" th:action="@{/admin/create-product}" method="post">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label">Tên sản phẩm</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label">img</label>
+                            <input type="file" class="form-control" name="img">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label">Giá</label>
+                            <input type="text" class="form-control" name="price">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Xác nhận">
+            </form>
+            <br>
+            <form th:object="${productDetailsModel}" th:action="@{/create}" method="post">
+                <div class="row">
+                   <div class="col">
+                       <div>
+                           <label>Mùa sắc</label>
+                           <select class="form-select" aria-label="Default select example" name="color">
+                              <th:block th:each="color : ${colors}">
+                                  <option th:value="${color}" th:text="${color.name}"></option>
+                              </th:block>
+                           </select>
+                       </div>
+                   </div>
+
+                    <div class="col">
+                        <div>
+                            <label>Kích cỡ</label>
+                            <select class="form-select" aria-label="Default select example" name="size">
+                                <th:block th:each="size : ${sizes}">
+                                    <option th:value="${size}" th:text="${size.name}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div>
+                            <label>Danh mục</label>
+                            <select class="form-select" aria-label="Default select example" name="category">
+                                <th:block th:each="category : ${categorys}">
+                                    <option th:value="${category}" th:text="${category.name}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <label>Số lương</label>
+                            <input type="number" class="form-control" min="1" value="1" name="quantity">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Xác nhận">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

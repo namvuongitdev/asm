@@ -1,0 +1,62 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#layout {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+article {
+    min-height: 400px;
+    width: 80%;
+    background-color: white;
+    float: right;
+}
+
+aside {
+    min-height: 400px;
+    width: 20%;
+    float: left;
+    margin-top: 10px;
+    background-color: #eeeeee;
+}
+
+footer {
+    line-height: 50px;
+    background-color: wheat;
+    text-align: center;
+    font-variant: small-caps;
+    clear: both;
+}
+
+
+.card-item > .col-1 > a > img{
+    width: 200px;
+    min-height: 100px;
+
+}
+.card-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    margin: 10px 20px 10px 20px;
+    width: 200px;
+    float: left;
+
+}
+.card-item > .col-1 > .card-body > a > small{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    color: #2d2d2d;
+}

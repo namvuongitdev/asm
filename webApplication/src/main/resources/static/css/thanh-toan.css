@@ -1,0 +1,32 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#layout {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+ article {
+    min-height: 400px;
+    width: 100%;
+}
+
+ aside {
+    min-height: 400px;
+    width:100%;
+    margin-top: 10px;
+    
+}
+
+footer {
+    line-height: 50px;
+    font-variant: small-caps;
+    clear: both;
+}
+
+
+
+
+
